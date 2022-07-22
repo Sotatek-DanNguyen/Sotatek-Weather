@@ -8,17 +8,17 @@
 import UIKit
 import SVProgressHUD
 class CurrentWeatherWithCityVC: UIViewController {
-    @IBOutlet private weak var locationTf: UITextField!
+    @IBOutlet private weak var locationTextField: UITextField!
 
-    @IBOutlet private weak var iconImg: UIImageView!
-    @IBOutlet private weak var bgImg: UIImageView!
-    @IBOutlet private weak var locationLbl: UILabel!
-    @IBOutlet private weak var weatherLbl: UILabel!
-    @IBOutlet private weak var temperatureLbl: UILabel!
-    @IBOutlet private weak var temperatureFahrenheitLbl: UILabel!
-    @IBOutlet private weak var humidityLbl: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var bgImageView: UIImageView!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var weatherLabel: UILabel!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var temperatureFahrenheitLabel: UILabel!
+    @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var moreBtn: UIButton!
+    @IBOutlet private weak var moreButton: UIButton!
 
     private var isHiddenFahrenheit: Bool = true
     override func viewDidLoad() {
@@ -26,13 +26,13 @@ class CurrentWeatherWithCityVC: UIViewController {
         setupUI()
     }
     private func setupUI() {
-        locationTf.delegate = self
+        locationTextField.delegate = self
         isShowWeatherView(false)
         showFahrenheit()
     }
     private func showFahrenheit() {
-        temperatureLbl.isHidden = !isHiddenFahrenheit
-        temperatureFahrenheitLbl.isHidden = isHiddenFahrenheit
+        temperatureLabel.isHidden = !isHiddenFahrenheit
+        temperatureFahrenheitLabel.isHidden = isHiddenFahrenheit
     }
     @IBAction private func changeShowTemperature() {
         isHiddenFahrenheit = !isHiddenFahrenheit
@@ -41,7 +41,7 @@ class CurrentWeatherWithCityVC: UIViewController {
     
     @IBAction private func forecastWeather() {
         let vc = ForeCastWeatherVC(nibName: "ForeCastWeatherVC", bundle: nil)
-        vc.cityName = locationTf.text
+        vc.cityName = locationTextField.text
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction private func searchAction() {
@@ -55,16 +55,20 @@ extension CurrentWeatherWithCityVC: UITextFieldDelegate {
         return true
     }
     private func search() {
-        locationTf.resignFirstResponder()
+        locationTextField.resignFirstResponder()
 
-        if let locationStr = locationTf.text, locationStr != "" {
+        if let locationStr = locationTextField.text, locationStr != "" {
             let service = WeatherService()
             SVProgressHUD.show()
-            service.weatherData(locationStr: locationStr) { currentDataWeather in
+            service.weatherData(locationStr: locationStr) { currentDataWeather, error  in
                 SVProgressHUD.dismiss()
                 DispatchQueue.main.sync { [weak self] in
                     guard let `self` = self else { return }
-                    self.updateUI(currentDataWeather)
+                    if error != nil {
+                        self.updateUI(nil)
+                    } else {
+                        self.updateUI(currentDataWeather)
+                    }
                 }
             }
         }
@@ -78,21 +82,21 @@ extension CurrentWeatherWithCityVC {
             return
         }
         isShowWeatherView(true)
-        moreBtn.isHidden = false
+        moreButton.isHidden = false
         if let weather = currentData.weather?.first {
-            iconImg.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-1")
-            bgImg.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-2")
-            weatherLbl.text = (weather.description ?? "").capitalizingFirstLetter()
+            iconImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-1")
+            bgImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-2")
+            weatherLabel.text = (weather.description ?? "").capitalizingFirstLetter()
         }
         if let mainContent = currentData.main {
-            locationLbl.text = locationTf.text
-            humidityLbl.text = "\(mainContent.humidity ?? 0)%"
-            temperatureLbl.text = "\(Int(mainContent.tempCelcius))°C"
-            temperatureFahrenheitLbl.text = "\(Int(mainContent.tempFahrenheit))°F"
+            locationLabel.text = locationTextField.text
+            humidityLabel.text = "\(mainContent.humidity ?? 0)%"
+            temperatureLabel.text = "\(Int(mainContent.tempCelcius))°C"
+            temperatureFahrenheitLabel.text = "\(Int(mainContent.tempFahrenheit))°F"
         }
     }
     private func isShowWeatherView(_ value: Bool) {
         containerView.isHidden = !value
-        moreBtn.isHidden = !value
+        moreButton.isHidden = !value
     }
 }

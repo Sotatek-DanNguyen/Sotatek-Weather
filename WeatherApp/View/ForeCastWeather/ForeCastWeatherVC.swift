@@ -12,7 +12,7 @@ class ForeCastWeatherVC: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var cityName:String?
-    private var listWeather:[CurrentWeatherData]?
+    private var listWeather: [CurrentWeatherData]?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -33,11 +33,15 @@ extension ForeCastWeatherVC {
         if let cityName = cityName {
             let service = WeatherService()
             SVProgressHUD.show()
-            service.forecastWeatherData(locationStr: cityName) { data in
+            service.forecastWeatherData(locationStr: cityName) { data,error  in
                 SVProgressHUD.dismiss()
                 DispatchQueue.main.sync { [weak self] in
                     guard let `self` = self else { return }
-                    self.updateUI(data)
+                    if error == nil {
+                        self.updateUI(data)
+                    } else {
+                        self.updateUI(nil)
+                    }
                 }
             }
         }

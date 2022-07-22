@@ -123,12 +123,12 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="bgImg" destination="KQs-zC-RBl" id="nkS-iR-gC9"/>
-                <outlet property="humidityLbl" destination="epv-JA-1dX" id="JL0-fQ-c9k"/>
-                <outlet property="iconImg" destination="HwU-rV-5n2" id="hUk-8H-7E3"/>
-                <outlet property="locationLbl" destination="P60-tX-lY8" id="6Ec-0N-xDB"/>
-                <outlet property="temperatureLbl" destination="qyn-l5-BSx" id="gR1-6F-JgE"/>
-                <outlet property="weatherLbl" destination="6lN-Af-C3k" id="ZKC-py-k9q"/>
+                <outlet property="bgImageView" destination="KQs-zC-RBl" id="cXG-pW-gNN"/>
+                <outlet property="humidityLabel" destination="epv-JA-1dX" id="BGg-vt-GoO"/>
+                <outlet property="iconImageView" destination="HwU-rV-5n2" id="ubx-sn-Auy"/>
+                <outlet property="locationLabel" destination="P60-tX-lY8" id="Y4j-r7-ZNa"/>
+                <outlet property="temperatureLabel" destination="qyn-l5-BSx" id="eQU-O4-4aP"/>
+                <outlet property="weatherLabel" destination="6lN-Af-C3k" id="hy5-EV-3PB"/>
             </connections>
             <point key="canvasLocation" x="213.768115942029" y="112.5"/>
         </tableViewCell>

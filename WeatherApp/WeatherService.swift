@@ -12,8 +12,11 @@ class WeatherService {
     //Networking Code
     let decoder = JSONDecoder()
     
-    fileprivate func updateResults<T: Decodable>(_ data: Data, myStruct: T.Type) -> T? {
+    fileprivate func updateResults<T: Decodable>(_ data: Data?, myStruct: T.Type) -> T? {
         decoder.dateDecodingStrategy = .iso8601
+        guard let data = data else {
+            return nil
+        }
         do {
             let rawFeed = try decoder.decode(T.self, from: data)
             return rawFeed
@@ -24,23 +27,34 @@ class WeatherService {
         }
     }
 
-    func weatherData(locationStr: String, completion: @escaping (CurrentWeatherData?) -> ()) {
+    func weatherData(locationStr: String, completion: @escaping (CurrentWeatherData?, Error?) -> ()) {
         
         guard let url = API.locationForecast(locationStr) else { return }
         URLSession.shared.dataTask(with: url) {(data, response, error ) in
-            guard let data = data else { return }
-            if let currentWeatherData = self.updateResults(data, myStruct: CurrentWeatherData.self) {
-                completion(currentWeatherData)
+
+            if error != nil {
+                completion(nil, error)
+            } else {
+                if let forecastWeatherData = self.updateResults(data, myStruct: CurrentWeatherData.self) {
+                    completion(forecastWeatherData, nil)
+                } else {
+                    completion(nil, nil)
+                }
             }
             }.resume()
     }
     
-    func forecastWeatherData(locationStr: String, completion: @escaping (ForecastWeatherData?) -> ()) {
+    func forecastWeatherData(locationStr: String, completion: @escaping (ForecastWeatherData?, Error?) -> ()) {
         guard let url = API.locationForecast5Days(locationStr) else { return }
         URLSession.shared.dataTask(with: url) {(data, response, error ) in
-            guard let data = data else { return }
-            if let forecastWeatherData = self.updateResults(data, myStruct: ForecastWeatherData.self) {
-                completion(forecastWeatherData)
+            if error != nil {
+                completion(nil, error)
+            } else {
+                if let forecastWeatherData = self.updateResults(data, myStruct: ForecastWeatherData.self) {
+                    completion(forecastWeatherData, nil)
+                } else {
+                    completion(nil, nil)
+                }
             }
             }.resume()
     }
