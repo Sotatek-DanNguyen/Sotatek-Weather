@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct ForecastWeatherData: Decodable {
+    let list: [CurrentWeatherData]?
+}
+
 struct CurrentWeatherData: Decodable {
     
     let weather: [Weather]?

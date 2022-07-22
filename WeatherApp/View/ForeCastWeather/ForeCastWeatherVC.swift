@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class ForeCastWeatherVC: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
@@ -32,7 +32,9 @@ extension ForeCastWeatherVC {
     private func getForecast() {
         if let cityName = cityName {
             let service = WeatherService()
+            SVProgressHUD.show()
             service.forecastWeatherData(locationStr: cityName) { data in
+                SVProgressHUD.dismiss()
                 DispatchQueue.main.sync { [weak self] in
                     guard let `self` = self else { return }
                     self.updateUI(data)

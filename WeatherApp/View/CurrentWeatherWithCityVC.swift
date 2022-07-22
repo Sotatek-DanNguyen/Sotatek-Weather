@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class CurrentWeatherWithCityVC: UIViewController {
     @IBOutlet private weak var locationTf: UITextField!
 
@@ -51,7 +51,9 @@ extension CurrentWeatherWithCityVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         let service = WeatherService()
+        SVProgressHUD.show()
         service.weatherData(locationStr: textField.text ?? "") { currentDataWeather in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.sync { [weak self] in
                 guard let `self` = self else { return }
                 self.updateUI(currentDataWeather)
