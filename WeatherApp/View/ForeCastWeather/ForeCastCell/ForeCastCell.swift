@@ -14,8 +14,9 @@ class ForeCastCell: UITableViewCell {
     @IBOutlet private weak var weatherLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
 
-    func updateUI(_ currentDataWeather: CurrentWeatherData, cityName: String) {
+    func updateUI(_ currentDataWeather: CurrentWeatherData, cityName: String, dateStr: String) {
         if let weather = currentDataWeather.weather?.first {
             iconImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-1")
             bgImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-2")
@@ -26,6 +27,7 @@ class ForeCastCell: UITableViewCell {
             temperatureLabel.text = "\(Int(mainContent.tempCelcius))°C"
         }
         locationLabel.text = cityName
+        dateLabel.text = dateStr
         
     }
     

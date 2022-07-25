@@ -38,12 +38,13 @@ extension ForeCastWeatherVC {
             SVProgressHUD.show()
             service.forecastWeatherData(locationStr: cityName) { data,error  in
                 SVProgressHUD.dismiss()
-                DispatchQueue.main.sync { [weak self] in
+                DispatchQueue.main.async { [weak self] in
                     guard let `self` = self else { return }
                     if error == nil {
                         self.updateUI(data)
                     } else {
                         self.updateUI(nil)
+                        self.showEmptyAlert("Notice", message: error?.message ?? "")
                     }
                 }
             }
@@ -52,8 +53,13 @@ extension ForeCastWeatherVC {
     private func updateUI(_ data: ForecastWeatherData?) {
         var i = 0
         listWeather?.removeAll()
-        guard let data = data else { return }
-        guard let listWeather = data.list else { return }
+        guard let data = data else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        guard let listWeather = data.list else {
+            return
+        }
         for weatherData in listWeather {
             if (i > 4) {
                 break
@@ -62,6 +68,9 @@ extension ForeCastWeatherVC {
             i = i + 1
         }
         tableView.reloadData()
+    }
+    private func dateWithIndex(index: Int) {
+        
     }
 }
 extension ForeCastWeatherVC: UITableViewDataSource {
@@ -74,7 +83,8 @@ extension ForeCastWeatherVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ForeCastCell", for: indexPath) as! ForeCastCell
         if let list = listWeather, list.count > indexPath.row {
-            cell.updateUI(list[indexPath.row],cityName: cityName ?? "")
+            let dateStr = Date.getNextDate(count: indexPath.row)
+            cell.updateUI(list[indexPath.row],cityName: cityName ?? "", dateStr: dateStr)
         }
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
@@ -88,3 +98,4 @@ extension ForeCastWeatherVC: UITableViewDelegate {
     }
 
 }
+
