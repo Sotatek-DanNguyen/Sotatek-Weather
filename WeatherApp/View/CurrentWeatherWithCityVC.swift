@@ -19,7 +19,7 @@ class CurrentWeatherWithCityVC: UIViewController {
     @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var moreButton: UIButton!
-
+    var currentCityName: String?
     private var isHiddenFahrenheit: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +41,8 @@ class CurrentWeatherWithCityVC: UIViewController {
     
     @IBAction private func forecastWeather() {
         let vc = ForeCastWeatherVC(nibName: "ForeCastWeatherVC", bundle: nil)
-        vc.cityName = locationTextField.text
+        vc.cityName = currentCityName ?? ""
         navigationController?.pushViewController(vc, animated: true)
-    }
-    @IBAction private func searchAction() {
-        search()
     }
 }
 
@@ -62,10 +59,11 @@ extension CurrentWeatherWithCityVC: UITextFieldDelegate {
             SVProgressHUD.show()
             service.weatherData(locationStr: locationStr) { currentDataWeather, error  in
                 SVProgressHUD.dismiss()
-                DispatchQueue.main.sync { [weak self] in
+                DispatchQueue.main.async { [weak self] in
                     guard let `self` = self else { return }
                     if error != nil {
                         self.updateUI(nil)
+                        self.showEmptyAlert("Notice", message: error?.message ?? "")
                     } else {
                         self.updateUI(currentDataWeather)
                     }
@@ -79,10 +77,13 @@ extension CurrentWeatherWithCityVC {
     private func updateUI(_ currentDataWeather: CurrentWeatherData?) {
         guard let currentData = currentDataWeather else {
             isShowWeatherView(false)
+            locationTextField.text = ""
+            currentCityName = ""
             return
         }
         isShowWeatherView(true)
         moreButton.isHidden = false
+        currentCityName = currentData.cityName ?? ""
         if let weather = currentData.weather?.first {
             iconImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-1")
             bgImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-2")

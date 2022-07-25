@@ -25,6 +25,7 @@
 		CE1760AD288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1760AB288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib */; };
 		CE1760B2288A423800ED7BD8 /* ForeCastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760B0288A423800ED7BD8 /* ForeCastCell.swift */; };
 		CE1760B3288A423800ED7BD8 /* ForeCastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1760B1288A423800ED7BD8 /* ForeCastCell.xib */; };
+		CE667E03288E35A800CE573B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE667E02288E35A800CE573B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		CE1760AB288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastWeatherVC.xib; sourceTree = "<group>"; };
 		CE1760B0288A423800ED7BD8 /* ForeCastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastCell.swift; sourceTree = "<group>"; };
 		CE1760B1288A423800ED7BD8 /* ForeCastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastCell.xib; sourceTree = "<group>"; };
+		CE667E02288E35A800CE573B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA7AC759FEA0EDCDD161B86 /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 		CE17606A2889029300ED7BD8 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE667E02288E35A800CE573B /* GoogleService-Info.plist */,
 				CE17606B2889029300ED7BD8 /* AppDelegate.swift */,
 				CE1760A02889309200ED7BD8 /* Until */,
 				CE1760A728893A1000ED7BD8 /* Service */,
@@ -347,6 +350,7 @@
 				CE1760AD288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib in Resources */,
 				CE1760B3288A423800ED7BD8 /* ForeCastCell.xib in Resources */,
 				CE17609F28892D5900ED7BD8 /* CurrentWeatherWithCityVC.xib in Resources */,
+				CE667E03288E35A800CE573B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,18 +654,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 58Y5M7MWAM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = krungsri.iOSTest.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.earable.app.production;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -677,18 +683,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 58Y5M7MWAM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = krungsri.iOSTest.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.earable.app.production;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

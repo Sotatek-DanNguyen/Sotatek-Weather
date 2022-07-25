@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -84,7 +83,6 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="y8p-10-Gcd" secondAttribute="trailing" constant="8" id="3hy-nD-18n"/>
                             <constraint firstItem="KQs-zC-RBl" firstAttribute="leading" secondItem="9je-SJ-e6h" secondAttribute="leading" id="BLw-su-jLd"/>
@@ -136,8 +134,5 @@
     <resources>
         <image name="01d-1" width="512" height="512"/>
         <image name="01d-2" width="910" height="607"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

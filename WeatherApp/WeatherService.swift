@@ -26,40 +26,68 @@ class WeatherService {
             return nil
         }
     }
-
-    func weatherData(locationStr: String, completion: @escaping (CurrentWeatherData?, Error?) -> ()) {
-        
-        guard let url = API.locationForecast(locationStr) else { return }
+    
+    private func baseRequest(url: URL, completion: @escaping (Data?, ServiceError?) -> ()) {
+        if !Reachability.isConnectedToNetwork() {
+            completion(nil, .internetError)
+            return
+        }
         URLSession.shared.dataTask(with: url) {(data, response, error ) in
-
             if error != nil {
-                completion(nil, error)
+                completion(nil, .notFoundData)
             } else {
-                if let forecastWeatherData = self.updateResults(data, myStruct: CurrentWeatherData.self) {
-                    completion(forecastWeatherData, nil)
-                } else {
-                    completion(nil, nil)
-                }
+                completion(data, nil)
             }
             }.resume()
     }
-    
-    func forecastWeatherData(locationStr: String, completion: @escaping (ForecastWeatherData?, Error?) -> ()) {
+}
+
+extension WeatherService {
+    func weatherData(locationStr: String, completion: @escaping (CurrentWeatherData?, ServiceError?) -> ()) {
+        
+        guard let url = API.locationForecast(locationStr) else { return }
+        
+        baseRequest(url: url) { data, error in
+                if error != nil {
+                    completion(nil, error)
+                } else {
+                    if let forecastWeatherData = self.updateResults(data, myStruct: CurrentWeatherData.self) {
+                        completion(forecastWeatherData, nil)
+                    } else {
+                        completion(nil, .notFoundData)
+                    }
+                }
+        }
+    }
+    func forecastWeatherData(locationStr: String,
+                             completion: @escaping (ForecastWeatherData?, ServiceError?) -> ()) {
         guard let url = API.locationForecast5Days(locationStr) else { return }
-        URLSession.shared.dataTask(with: url) {(data, response, error ) in
+        baseRequest(url: url) {(data, error ) in
             if error != nil {
                 completion(nil, error)
             } else {
                 if let forecastWeatherData = self.updateResults(data, myStruct: ForecastWeatherData.self) {
                     completion(forecastWeatherData, nil)
                 } else {
-                    completion(nil, nil)
+                    completion(nil, .notFoundData)
                 }
             }
-            }.resume()
+        }
     }
-
 }
+
+struct ServiceError: Error {
+    let message: String
+    
+    static var notFoundData: ServiceError {
+        return ServiceError(message: "Not found Data")
+    }
+    
+    static var internetError: ServiceError {
+        return ServiceError(message: "Internet Connection Error")
+    }
+}
+
 struct API {
     
     //Basic Weather URL
@@ -97,6 +125,3 @@ struct API {
         return baseURL?.url
     }
 }
-
-
-

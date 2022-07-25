@@ -34,7 +34,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-Sx-gLV">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-Sx-gLV">
                     <rect key="frame" x="24" y="93.5" width="366" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="W0Y-Mf-vbj"/>
@@ -43,7 +43,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Za0-Fg-0No">
-                    <rect key="frame" x="24" y="178.5" width="366" height="128"/>
+                    <rect key="frame" x="24" y="139.5" width="366" height="128"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01d-2" translatesAutoresizingMaskIntoConstraints="NO" id="TkP-b7-UNk">
                             <rect key="frame" x="0.0" y="0.0" width="366" height="128"/>
@@ -97,7 +97,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37°F" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4j-4L-zeW">
-                                    <rect key="frame" x="0.0" y="77" width="150" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="77" width="150" height="27"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="27" id="NlT-Hm-vtJ"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -169,30 +172,19 @@
                         <action selector="forecastWeather" destination="-1" eventType="touchUpInside" id="0yo-Mb-FkP"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="io1-p7-B6p">
-                    <rect key="frame" x="172.5" y="131.5" width="69" height="31"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Search"/>
-                    <connections>
-                        <action selector="searchAction" destination="-1" eventType="touchUpInside" id="CH8-hL-dcM"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.2274509804" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.22745098039215686" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Za0-Fg-0No" firstAttribute="top" secondItem="UIT-Sx-gLV" secondAttribute="bottom" constant="16" id="4bj-4t-Z1v"/>
                 <constraint firstItem="UIT-Sx-gLV" firstAttribute="leading" secondItem="o5N-bc-Kox" secondAttribute="leading" id="6ry-hU-i9U"/>
                 <constraint firstItem="o5N-bc-Kox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7Sa-OC-cl0"/>
                 <constraint firstItem="UIT-Sx-gLV" firstAttribute="top" secondItem="o5N-bc-Kox" secondAttribute="bottom" constant="16" id="7rw-rn-c6P"/>
                 <constraint firstItem="bpy-Fc-X04" firstAttribute="trailing" secondItem="UIT-Sx-gLV" secondAttribute="trailing" id="Cyo-c6-Ogq"/>
-                <constraint firstItem="io1-p7-B6p" firstAttribute="top" secondItem="UIT-Sx-gLV" secondAttribute="bottom" constant="8" id="G5a-9W-1It"/>
                 <constraint firstItem="UIT-Sx-gLV" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="HFG-EP-OGc"/>
-                <constraint firstItem="io1-p7-B6p" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Pa8-pO-NBt"/>
                 <constraint firstItem="o5N-bc-Kox" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="S5x-Bo-bSh"/>
                 <constraint firstItem="bpy-Fc-X04" firstAttribute="top" secondItem="o5N-bc-Kox" secondAttribute="top" id="eK0-YT-8pR"/>
                 <constraint firstItem="Za0-Fg-0No" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eYj-uh-WwJ"/>
-                <constraint firstItem="Za0-Fg-0No" firstAttribute="top" secondItem="io1-p7-B6p" secondAttribute="bottom" constant="16" id="ltx-TQ-lMU"/>
                 <constraint firstItem="Za0-Fg-0No" firstAttribute="leading" secondItem="UIT-Sx-gLV" secondAttribute="leading" id="nDf-fi-8IU"/>
             </constraints>
             <point key="canvasLocation" x="155.07246376811597" y="27.455357142857142"/>

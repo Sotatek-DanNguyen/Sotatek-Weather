@@ -7,6 +7,7 @@ target 'WeatherApp' do
 
   # Pods for WeatherApp
   pod 'SVProgressHUD', '~> 2.2'
+  pod 'Firebase'
   target 'WeatherAppTests' do
     inherit! :search_paths
     # Pods for testing

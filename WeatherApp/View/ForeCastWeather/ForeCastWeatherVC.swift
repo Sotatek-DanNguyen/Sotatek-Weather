@@ -19,13 +19,16 @@ class ForeCastWeatherVC: UIViewController {
     }
     
     private func setupUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ForeCastCell", bundle: nil), forCellReuseIdentifier: "ForeCastCell")
         listWeather = []
         getForecast()
     }
-
+    @IBAction private func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ForeCastWeatherVC {
@@ -73,6 +76,8 @@ extension ForeCastWeatherVC: UITableViewDataSource {
         if let list = listWeather, list.count > indexPath.row {
             cell.updateUI(list[indexPath.row],cityName: cityName ?? "")
         }
+        cell.selectionStyle = .none
+        cell.backgroundColor = .clear
         return cell
     }
 }
