@@ -41,6 +41,11 @@
 		CE667E302890E66400CE573B /* ForeCastWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */; };
 		CE667E332890E67300CE573B /* ForeCastWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */; };
 		CE667E342890E67300CE573B /* ForeCastWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */; };
+		CE667E382891192800CE573B /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E372891192800CE573B /* CurrentWeather.swift */; };
+		CE667E392891195C00CE573B /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760A32889387500ED7BD8 /* WeatherService.swift */; };
+		CE667E3A2891199F00CE573B /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760A52889396200ED7BD8 /* CurrentWeatherData.swift */; };
+		CE667E3B28911A3900CE573B /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E13288FFA6D00CE573B /* InternetConnection.swift */; };
+		CE667E3E28911FB400CE573B /* ForeCastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E3D28911FB400CE573B /* ForeCastWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,8 @@
 		CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherModel.swift; sourceTree = "<group>"; };
 		CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherViewController.swift; sourceTree = "<group>"; };
 		CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastWeatherViewController.xib; sourceTree = "<group>"; };
+		CE667E372891192800CE573B /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		CE667E3D28911FB400CE573B /* ForeCastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeather.swift; sourceTree = "<group>"; };
 		FAA7AC759FEA0EDCDD161B86 /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +206,7 @@
 		CE1760812889029400ED7BD8 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE667E35289118FC00CE573B /* WeatherApp */,
 				CE1760822889029400ED7BD8 /* WeatherAppTests.swift */,
 			);
 			path = WeatherAppTests;
@@ -351,6 +359,31 @@
 				CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */,
 				CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */,
 				CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */,
+			);
+			path = ForeCastWeather;
+			sourceTree = "<group>";
+		};
+		CE667E35289118FC00CE573B /* WeatherApp */ = {
+			isa = PBXGroup;
+			children = (
+				CE667E3C28911F8100CE573B /* ForeCastWeather */,
+				CE667E362891190D00CE573B /* CurrentWeather */,
+			);
+			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		CE667E362891190D00CE573B /* CurrentWeather */ = {
+			isa = PBXGroup;
+			children = (
+				CE667E372891192800CE573B /* CurrentWeather.swift */,
+			);
+			path = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		CE667E3C28911F8100CE573B /* ForeCastWeather */ = {
+			isa = PBXGroup;
+			children = (
+				CE667E3D28911FB400CE573B /* ForeCastWeather.swift */,
 			);
 			path = ForeCastWeather;
 			sourceTree = "<group>";
@@ -626,7 +659,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE667E3A2891199F00CE573B /* CurrentWeatherData.swift in Sources */,
+				CE667E382891192800CE573B /* CurrentWeather.swift in Sources */,
+				CE667E392891195C00CE573B /* WeatherService.swift in Sources */,
 				CE1760832889029400ED7BD8 /* WeatherAppTests.swift in Sources */,
+				CE667E3B28911A3900CE573B /* InternetConnection.swift in Sources */,
+				CE667E3E28911FB400CE573B /* ForeCastWeather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
