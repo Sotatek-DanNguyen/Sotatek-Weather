@@ -15,10 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            let vc = CurrentWeatherWithCityVC(nibName: "CurrentWeatherWithCityVC", bundle: nil)
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            let nav = UINavigationController()
+            let currentWeatherCoordinator = CurrentWeatherCoordinator(window: window, navController: nav)
+            currentWeatherCoordinator.start()
             FirebaseApp.configure()
             return true
     }

@@ -44,7 +44,7 @@ extension ForeCastWeatherVC {
                         self.updateUI(data)
                     } else {
                         self.updateUI(nil)
-                        self.showEmptyAlert("Notice", message: error?.message ?? "")
+//                        self.showEmptyAlert("Notice", message: error?.message ?? "")
                     }
                 }
             }
