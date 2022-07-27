@@ -37,6 +37,7 @@ extension ForeCastWeatherPresenter: ForeCastWeatherPresenterProtocol {
             DispatchQueue.main.async {
                 self.view?.hideLoading()
                 if let serviceError = error {
+                    self.coordinator.backToHome()
                     self.view?.showEmptyAlert("Notice", message: serviceError.message)
                 } else {
                     self.updateWeathersData(data)

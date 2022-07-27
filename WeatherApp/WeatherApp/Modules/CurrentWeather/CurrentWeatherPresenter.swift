@@ -11,7 +11,8 @@ final class CurrentWeatherPresenter {
     private var view: CurrentWeatherContract.View?
     private var model: CurrentWeatherContract.Model
     private var coordinator: CurrentWeatherCoordinator
-    private var isHiddenFahrenheit: Bool = true
+    private var isHiddenFahrenheit = true
+    private var currentCityName = ""
 
     init(model: CurrentWeatherContract.Model, view: CurrentWeatherContract.View?, coordinator: CurrentWeatherCoordinator) {
         self.model = model
@@ -21,8 +22,8 @@ final class CurrentWeatherPresenter {
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
-    func invokeShowForeCast(_ location: String) {
-        coordinator.navigateToInputForecast(cityName: location)
+    func invokeShowForeCast() {
+        coordinator.navigateToInputForecast(cityName: currentCityName)
     }
     
     func viewDidload() {
@@ -38,8 +39,10 @@ extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
                 self.view?.hideLoading()
                 if let serviceError = error {
                     self.view?.showEmptyAlert("Notice", message: serviceError.message)
+                    self.view?.updateUI(nil)
                 } else {
                     self.view?.updateUI(data)
+                    self.currentCityName = location
                 }
             }
         }

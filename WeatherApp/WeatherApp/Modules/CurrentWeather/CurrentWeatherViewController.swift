@@ -23,7 +23,6 @@ class CurrentWeatherViewController: BaseViewController {
     @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var moreButton: UIButton!
-    private var currentCityName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,7 @@ class CurrentWeatherViewController: BaseViewController {
     }
     
     @IBAction private func moreAction() {
-        presenter?.invokeShowForeCast(self.locationTextField.text ?? "")
+        presenter?.invokeShowForeCast()
     }
 }
 
@@ -58,12 +57,10 @@ extension CurrentWeatherViewController: CurrentWeatherViewProtocol {
         guard let currentData = currentDataWeather else {
             isShowWeatherView(false)
             locationTextField.text = ""
-            currentCityName = ""
             return
         }
         isShowWeatherView(true)
         moreButton.isHidden = false
-        currentCityName = currentData.cityName ?? ""
         if let weather = currentData.weather?.first {
             iconImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-1")
             bgImageView.image = UIImage(named: "\(String(describing: weather.icon ?? ""))-2")
