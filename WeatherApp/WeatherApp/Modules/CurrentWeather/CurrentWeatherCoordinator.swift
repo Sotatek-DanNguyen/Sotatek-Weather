@@ -28,5 +28,9 @@ class CurrentWeatherCoordinator: Coordinator {
         window?.rootViewController = self.navController
         window?.makeKeyAndVisible()
     }
-
+    
+    func navigateToInputForecast(cityName: String) {
+        let foreCastWeatherCoordinator = ForeCastWeatherCoordinator(parent: self, navController: navController)
+        foreCastWeatherCoordinator.start(data: cityName)
+    }
 }

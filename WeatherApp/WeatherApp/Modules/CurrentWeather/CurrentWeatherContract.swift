@@ -30,4 +30,5 @@ protocol CurrentWeatherPresenterProtocol {
     func viewDidload()
     func invokeSearch(_ location: String)
     func invokeChangeCtoF()
+    func invokeShowForeCast(_ location: String)
 }

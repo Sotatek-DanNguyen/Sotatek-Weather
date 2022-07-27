@@ -19,8 +19,6 @@
 		CE1760A22889318F00ED7BD8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760A12889318F00ED7BD8 /* UIViewControllerExtension.swift */; };
 		CE1760A42889387500ED7BD8 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760A32889387500ED7BD8 /* WeatherService.swift */; };
 		CE1760A62889396200ED7BD8 /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760A52889396200ED7BD8 /* CurrentWeatherData.swift */; };
-		CE1760AC288A3AAE00ED7BD8 /* ForeCastWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760AA288A3AAE00ED7BD8 /* ForeCastWeatherVC.swift */; };
-		CE1760AD288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1760AB288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib */; };
 		CE1760B2288A423800ED7BD8 /* ForeCastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1760B0288A423800ED7BD8 /* ForeCastCell.swift */; };
 		CE1760B3288A423800ED7BD8 /* ForeCastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1760B1288A423800ED7BD8 /* ForeCastCell.xib */; };
 		CE667E03288E35A800CE573B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE667E02288E35A800CE573B /* GoogleService-Info.plist */; };
@@ -37,6 +35,12 @@
 		CE667E242890D5A600CE573B /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E232890D5A600CE573B /* BaseViewProtocol.swift */; };
 		CE667E262890D6B600CE573B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E252890D6B600CE573B /* BaseViewController.swift */; };
 		CE667E282890D8C700CE573B /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E272890D8C700CE573B /* CurrentWeatherModel.swift */; };
+		CE667E2A2890E63E00CE573B /* ForeCastWeatherContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E292890E63E00CE573B /* ForeCastWeatherContract.swift */; };
+		CE667E2C2890E65100CE573B /* ForeCastWeatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E2B2890E65100CE573B /* ForeCastWeatherCoordinator.swift */; };
+		CE667E2E2890E65A00CE573B /* ForeCastWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E2D2890E65A00CE573B /* ForeCastWeatherPresenter.swift */; };
+		CE667E302890E66400CE573B /* ForeCastWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */; };
+		CE667E332890E67300CE573B /* ForeCastWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */; };
+		CE667E342890E67300CE573B /* ForeCastWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +82,6 @@
 		CE1760A12889318F00ED7BD8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CE1760A32889387500ED7BD8 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		CE1760A52889396200ED7BD8 /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
-		CE1760AA288A3AAE00ED7BD8 /* ForeCastWeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherVC.swift; sourceTree = "<group>"; };
-		CE1760AB288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastWeatherVC.xib; sourceTree = "<group>"; };
 		CE1760B0288A423800ED7BD8 /* ForeCastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastCell.swift; sourceTree = "<group>"; };
 		CE1760B1288A423800ED7BD8 /* ForeCastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastCell.xib; sourceTree = "<group>"; };
 		CE667E02288E35A800CE573B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -96,6 +98,12 @@
 		CE667E232890D5A600CE573B /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
 		CE667E252890D6B600CE573B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE667E272890D8C700CE573B /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
+		CE667E292890E63E00CE573B /* ForeCastWeatherContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherContract.swift; sourceTree = "<group>"; };
+		CE667E2B2890E65100CE573B /* ForeCastWeatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherCoordinator.swift; sourceTree = "<group>"; };
+		CE667E2D2890E65A00CE573B /* ForeCastWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherPresenter.swift; sourceTree = "<group>"; };
+		CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherModel.swift; sourceTree = "<group>"; };
+		CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastWeatherViewController.swift; sourceTree = "<group>"; };
+		CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForeCastWeatherViewController.xib; sourceTree = "<group>"; };
 		FAA7AC759FEA0EDCDD161B86 /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,8 +345,12 @@
 			isa = PBXGroup;
 			children = (
 				CE1760AF288A421C00ED7BD8 /* ForeCastCell */,
-				CE1760AA288A3AAE00ED7BD8 /* ForeCastWeatherVC.swift */,
-				CE1760AB288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib */,
+				CE667E292890E63E00CE573B /* ForeCastWeatherContract.swift */,
+				CE667E2B2890E65100CE573B /* ForeCastWeatherCoordinator.swift */,
+				CE667E2D2890E65A00CE573B /* ForeCastWeatherPresenter.swift */,
+				CE667E2F2890E66400CE573B /* ForeCastWeatherModel.swift */,
+				CE667E312890E67300CE573B /* ForeCastWeatherViewController.swift */,
+				CE667E322890E67300CE573B /* ForeCastWeatherViewController.xib */,
 			);
 			path = ForeCastWeather;
 			sourceTree = "<group>";
@@ -454,7 +466,7 @@
 			files = (
 				CE1760782889029400ED7BD8 /* LaunchScreen.storyboard in Resources */,
 				CE1760752889029400ED7BD8 /* Assets.xcassets in Resources */,
-				CE1760AD288A3AAE00ED7BD8 /* ForeCastWeatherVC.xib in Resources */,
+				CE667E342890E67300CE573B /* ForeCastWeatherViewController.xib in Resources */,
 				CE667E22288FFBEF00CE573B /* CurrentWeatherViewController.xib in Resources */,
 				CE1760B3288A423800ED7BD8 /* ForeCastCell.xib in Resources */,
 				CE667E03288E35A800CE573B /* GoogleService-Info.plist in Resources */,
@@ -589,16 +601,20 @@
 				CE667E07288FF8D700CE573B /* Coordinator.swift in Sources */,
 				CE667E0F288FF9D500CE573B /* DateExtension.swift in Sources */,
 				CE667E1A288FFB5200CE573B /* CurrentWeatherCoordinator.swift in Sources */,
+				CE667E2C2890E65100CE573B /* ForeCastWeatherCoordinator.swift in Sources */,
 				CE1760A42889387500ED7BD8 /* WeatherService.swift in Sources */,
 				CE667E262890D6B600CE573B /* BaseViewController.swift in Sources */,
 				CE667E1C288FFB8200CE573B /* CurrentWeatherContract.swift in Sources */,
 				CE1760B2288A423800ED7BD8 /* ForeCastCell.swift in Sources */,
 				CE1760A62889396200ED7BD8 /* CurrentWeatherData.swift in Sources */,
 				CE1760A22889318F00ED7BD8 /* UIViewControllerExtension.swift in Sources */,
+				CE667E332890E67300CE573B /* ForeCastWeatherViewController.swift in Sources */,
 				CE667E0C288FF98B00CE573B /* UIViewExtension.swift in Sources */,
+				CE667E2A2890E63E00CE573B /* ForeCastWeatherContract.swift in Sources */,
+				CE667E2E2890E65A00CE573B /* ForeCastWeatherPresenter.swift in Sources */,
 				CE667E21288FFBEF00CE573B /* CurrentWeatherViewController.swift in Sources */,
+				CE667E302890E66400CE573B /* ForeCastWeatherModel.swift in Sources */,
 				CE667E282890D8C700CE573B /* CurrentWeatherModel.swift in Sources */,
-				CE1760AC288A3AAE00ED7BD8 /* ForeCastWeatherVC.swift in Sources */,
 				CE667E1E288FFB9D00CE573B /* CurrentWeatherPresenter.swift in Sources */,
 				CE667E11288FF9ED00CE573B /* StringExtension.swift in Sources */,
 				CE17606C2889029300ED7BD8 /* AppDelegate.swift in Sources */,

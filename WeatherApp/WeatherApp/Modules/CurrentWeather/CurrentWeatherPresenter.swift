@@ -21,6 +21,9 @@ final class CurrentWeatherPresenter {
 }
 
 extension CurrentWeatherPresenter: CurrentWeatherPresenterProtocol {
+    func invokeShowForeCast(_ location: String) {
+        coordinator.navigateToInputForecast(cityName: location)
+    }
     
     func viewDidload() {
         view?.setupInputView()

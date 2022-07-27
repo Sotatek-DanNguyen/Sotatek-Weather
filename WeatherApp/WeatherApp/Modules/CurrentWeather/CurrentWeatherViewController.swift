@@ -33,6 +33,10 @@ class CurrentWeatherViewController: BaseViewController {
     @IBAction private func changeShowTemperature() {
         presenter?.invokeChangeCtoF()
     }
+    
+    @IBAction private func moreAction() {
+        presenter?.invokeShowForeCast(self.locationTextField.text ?? "")
+    }
 }
 
 extension CurrentWeatherViewController: CurrentWeatherViewProtocol {
